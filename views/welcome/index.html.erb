@@ -1,0 +1,20 @@
+<h1>Welcome#index</h1>
+<p>This is the welcome index page</p>
+<div data-controller="hello">
+  <h1 data-target="hello.output"></h1>
+</div>
+<div id="options"></div>
+<div id="options" data-controller="visibility" data-visibility-border-class="border"
+     data-visibility-border-primary-class="border-primary">
+  <h1>Toggle Visibility</h1>
+  <button data-action="visibility#showTargets">Show All Elements</button>
+  <button data-action="visibility#hideTargets">Hide All Elements</button>
+  <button data-action="visibility#toggleTargets">Toggle Element Visibility</button>
+  <%= check_box_tag :my_checkbox, true, false, data: { action: "visibility#highlightTargets", visibility_target: "highlightable" } %>
+  <p data-visibility-target="hideable">The Flamboyent Thing #1</p>
+  <p data-visibility-target="hideable" hidden>The Slightly Stealthy Thing #2</p>
+</div>
+<div id="text-input" data-controller="text-inputs">
+  <%= text_area_tag :text_input, '',data: {action: "input->text-inputs#updateCounter", text_inputs_target: "input"} %>
+  <p data-text-inputs-target="counter"></p>
+</div>
